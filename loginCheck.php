@@ -1,13 +1,15 @@
 <?php
     //  Include freqently used code
 include("dbHandle.php");
-
+session_destroy();
     //  Starts the session
 session_start();
    
     //  Copy post values to session
 $_SESSION["username"] = $_POST["username"];
 $_SESSION["password"] = $_POST["password"];
+
+$_SESSION["msg"];
 
     //  Assign to variables
 $user = $_SESSION["username"];
@@ -20,13 +22,15 @@ if($user != null && $pass != null){
 
         //  Availability Check
     if($available){
-        echo "Available";
+        $_SESSION["msg"] = "Logged in successfully.";
+        header("Location : index.php");
     }
     else{
-        echo "Not Available";
+        $_SESSION["msg"] = "Username and Password doesn't match.";
+        header("Location : index.php");
     }
 }else{
-    echo "Please fill all fields";
+    $_SESSION["msg"] = "Please fill all fields";
+    header("Location : index.php");
 }
-session_destroy();
 ?>

@@ -1,5 +1,6 @@
 <?php
-//  Check user availability
+
+    //  Check user availability
 function userAvailabilityCheck(string $usr, string $psw){
 
     $servername = "localhost";
@@ -15,7 +16,7 @@ function userAvailabilityCheck(string $usr, string $psw){
         die("Connection failed: " . $conn->connect_error);
     }
 
-        //  Query
+    //  Query
     $sql = "SELECT userID, username, password FROM users";
     $result = $conn->query($sql);
 
@@ -32,6 +33,32 @@ function userAvailabilityCheck(string $usr, string $psw){
         return false;
     }
     $conn->close();
+}
+    //  Add user to database
+function addUser(string $usr, string $psw, string $name, string $dob, string $profile){
 
+    $servername = "localhost";
+    $username = "test";
+    $password = "test";
+    $dbname = "starmeapp";
+
+        // Create connection
+    $conn = new mysqli($servername, $username, $password, $dbname);
+
+        // Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    $sql = "INSERT INTO users (username, password, name, dob, profile)
+    VALUES ('$usr', '$psw', '$name', '$dob', '$profile')";
+
+    if ($conn->query($sql) === TRUE) {
+        //echo "New record created successfully";
+    } else {
+        //echo "Error: " . $sql . "<br>" . $conn->error;
+    }
+
+    $conn->close();
 }
 ?>

@@ -1,3 +1,11 @@
+<?php
+
+	session_start();
+	error_reporting(0);
+	echo $_SESSION["msg"];
+	session_destroy();
+?>
+
 <!DOCTYPE html>
 <head>
 <meta charset="UTF-8">
@@ -27,8 +35,8 @@
 <form action = "regCheck.php" method = "post" name = "registration">
 	First Name : <input type = "text" name = "fname"/><br/>
 	Last Name : <input type = "text" name = "lname"/><br/>
-	Email (username) : <input type = "text" name = "email"/><br/>
-	Date of birth : <input type = "date" name = "lname"/><br/> 
+	Email (username) : <input type = "email" name = "email"/><br/>
+	Date of birth : <input type = "date" name = "date"/><br/> 
 	Password : <input type = "password" name = "psw"/></br>
 	Contact No : <input type = "number" name ="contact"/><br/>
 	Profile Picture : <input type = "file" name = "profile"><br/>
