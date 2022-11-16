@@ -1,92 +1,40 @@
-<?php
-
 <!DOCTYPE html>
-<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GfG</title>
+<title>Starme Login and Registration</title>
 </head>
 <body>
-<form>
-	<fieldset>
-	<legend>Personal Details</legend>
-	
 
-<p>
-		<label>
-		Salutation
-		<br />
-		<select name="salutation">
-			<option>--None--</option>
-			<option>Mr.</option>
-			<option>Ms.</option>
-			<option>Mrs.</option>
-			<option>Dr.</option>
-			<option>Prof.</option>
-		</select>
-		</label>
-	</p>
+<!-- Start Login Form -->
 
+<h3> Login Form </h3>
 
-	
-
-<p>
-		<label>First name: <input name="firstName" /></label>
-	</p>
-
-
-	
-
-<p>
-		<label>Last name: <input name="lastName" /></label>
-	</p>
-
-
-	
-
-<p>
-		Gender :
-		<label><input type="radio" name="gender" value="male" /> Male</label>
-		<label><input type="radio" name="gender" value="female" /> Female</label>
-	</p>
-
-
-	
-
-<p>
-		<label>Email:<input type="email" name="email" /></label>
-	</p>
-
-
-	
-
-<p>
-		<label>Date of Birth:<input type="date" name="birthDate"></label>
-	</p>
-
-
-	
-
-<p>
-		<label>
-		Address :
-		<br />
-		<textarea name="address" cols="30" rows="3"></textarea>
-		</label>
-	</p>
-
-
-	
-
-<p>
-		<button type="submit">Submit</button>
-	</p>
-
-
-	</fieldset>
+<form action = "loginCheck.php" method = "post" name = "login">
+	Email : <input type = "text" name = "username"/><br/>
+	Password : <input type = "password" name = "password"/><br/>
+	<input type = "submit" value = "Login"/><br/><br/>
 </form>
+
+<!-- End of the Login form -->
+
+<hr/>
+
+<!-- Start Registration Form -->
+
+<h3> Registration Form </h3>
+<form action = "regCheck.php" method = "post" name = "registration">
+	First Name : <input type = "text" name = "fname"/><br/>
+	Last Name : <input type = "text" name = "lname"/><br/>
+	Email (username) : <input type = "text" name = "email"/><br/>
+	Date of birth : <input type = "date" name = "lname"/><br/> 
+	Password : <input type = "password" name = "psw"/></br>
+	Contact No : <input type = "number" name ="contact"/><br/>
+	Profile Picture : <input type = "file" name = "profile"><br/>
+	<input type = "submit" value = "Register as a user"><br/>
+</form>
+
+<!-- End of the Registration Form-->
 </body>
 </html>
-?>
