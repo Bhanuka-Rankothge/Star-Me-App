@@ -2,7 +2,7 @@
 
     //  Include freqently used code
 include("dbHandle.php");
-session_destroy();
+//session_destroy();
     //  Starts the session
 session_start();
   
@@ -16,6 +16,7 @@ $_SESSION["msg"] = "Test";
 $user = $_SESSION["username"];
 $pass = $_SESSION["password"];
 
+$_SESSION["profile"] = profilePath($user);
 $available = userAvailabilityCheck($user, $pass);
 
     //  Empty Check
