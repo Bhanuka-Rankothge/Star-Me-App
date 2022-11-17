@@ -1,5 +1,5 @@
 <?php
-session_abort();
+//session_abort();
     //  Include freqently used code
 include("dbHandle.php");
 var_dump($_POST);
@@ -33,6 +33,8 @@ $available = userAvailabilityCheck($email, $psw);
     //  Empty Check
 if(($fname != null && $lname != null) && ($email != null && $dob != null) && ($psw != null && $profile != null)){
 
+    $profile = "images/profiles/".$_SESSION["profile"];
+
         //  Availability Check
     if($available){
         $_SESSION["msg"] = "This user is aleady exist. Please try a differennt username.";
@@ -41,8 +43,9 @@ if(($fname != null && $lname != null) && ($email != null && $dob != null) && ($p
     else{
         addUser($email, $psw, $name, $dob, $profile);
         uploadPhoto("../images/profiles/", "profile");
+        $_SESSION["profile"] = profilePath($email);
         $_SESSION["msg"] = "You Are Registered.";
-        //header("Location: ../index.php");
+        header("Location: ../index.php");
     }
 }else{
     $_SESSION["msg"] = "Please fill all the fields.";
