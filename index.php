@@ -1,11 +1,3 @@
-<?php
-
-	session_start();
-	error_reporting(0);
-	echo $_SESSION["msg"];
-	session_destroy();
-?>
-
 <!DOCTYPE html>
 <head>
 <meta charset="UTF-8">
@@ -15,11 +7,20 @@
 </head>
 <body>
 
+<?php
+
+session_start();
+error_reporting(0);
+echo "                                                              ".$_SESSION["username"]."<br/>";
+echo $_SESSION["msg"];
+session_abort();
+?>
+
 <!-- Start Login Form -->
 
 <h3> Login Form </h3>
 
-<form action = "loginCheck.php" method = "post" name = "login">
+<form action = "addons/loginCheck.php" method = "post" name = "login">
 	Email : <input type = "text" name = "username"/><br/>
 	Password : <input type = "password" name = "password"/><br/>
 	<input type = "submit" value = "Login"/><br/><br/>
@@ -32,7 +33,7 @@
 <!-- Start Registration Form -->
 
 <h3> Registration Form </h3>
-<form action = "regCheck.php" method = "post" name = "registration">
+<form action = "addons/regCheck.php" method = "post" name = "registration">
 	First Name : <input type = "text" name = "fname"/><br/>
 	Last Name : <input type = "text" name = "lname"/><br/>
 	Email (username) : <input type = "email" name = "email"/><br/>
