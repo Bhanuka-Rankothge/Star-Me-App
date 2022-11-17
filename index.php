@@ -11,9 +11,11 @@
 
 session_start();
 error_reporting(0);
+//echo $_SESSION["profile"];
+echo '<img src="' .$_SESSION["profile"].'" width = "40px" height = "40px"/>';
 echo "                                                              ".$_SESSION["username"]."<br/>";
 echo $_SESSION["msg"];
-session_abort();
+session_destroy();
 ?>
 
 <!-- Start Login Form -->
