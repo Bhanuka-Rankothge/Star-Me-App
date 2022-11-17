@@ -112,4 +112,40 @@ function uploadPhoto(string $directory, string $htmlTagName){
         }
     }
 }
+    //  profile path reader
+function profilePath(string $user){
+
+    $path;
+
+    $servername = "localhost";
+    $username = "test";
+    $password = "test";
+    $dbname = "starme";
+
+        // Create connection
+    $conn = new mysqli($servername, $username, $password, $dbname);
+
+        // Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    //  Query
+    $sql = "SELECT profile FROM users WHERE username = '$user'";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+
+        //  If user available
+        while($row = $result->fetch_assoc()) {
+            $path = $row["profile"];
+            return $path;
+        }
+    } else {
+
+        return "error";
+    }
+    $conn->close();
+}
+
 ?>
