@@ -3,6 +3,7 @@ session_abort();
     //  Include freqently used code
 include("dbHandle.php");
 var_dump($_POST);
+var_dump($_FILES);
     //  Starts the session
 session_start();
    
@@ -12,7 +13,7 @@ $_SESSION["lname"] = $_POST["lname"];
 $_SESSION["email"] = $_POST["email"];
 $_SESSION["date"] = $_POST["date"];
 $_SESSION["psw"] = $_POST["psw"];
-$_SESSION["profile"] = $_POST["profile"];
+$_SESSION["profile"] = $_FILES["profile"]["name"];
 
     // Creates the session me
 $_SESSION["msg"];
@@ -39,8 +40,9 @@ if(($fname != null && $lname != null) && ($email != null && $dob != null) && ($p
     }
     else{
         addUser($email, $psw, $name, $dob, $profile);
+        uploadPhoto("../images/profiles/", "profile");
         $_SESSION["msg"] = "You Are Registered.";
-        header("Location: ../index.php");
+        //header("Location: ../index.php");
     }
 }else{
     $_SESSION["msg"] = "Please fill all the fields.";
