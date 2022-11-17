@@ -33,14 +33,14 @@ session_abort();
 <!-- Start Registration Form -->
 
 <h3> Registration Form </h3>
-<form action = "addons/regCheck.php" method = "post" name = "registration">
+<form action = "addons/regCheck.php" method = "post" name = "registration" enctype="multipart/form-data">
 	First Name : <input type = "text" name = "fname"/><br/>
 	Last Name : <input type = "text" name = "lname"/><br/>
 	Email (username) : <input type = "email" name = "email"/><br/>
 	Date of birth : <input type = "date" name = "date"/><br/> 
 	Password : <input type = "password" name = "psw"/></br>
 	Contact No : <input type = "number" name ="contact"/><br/>
-	Profile Picture : <input type = "file" name = "profile"><br/>
+	Profile Picture : <input type = "file" name = "profile" id="profile"><br/>
 	<input type = "submit" value = "Register as a user"><br/>
 </form>
 
