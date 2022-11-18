@@ -4,3 +4,15 @@ CREATE TABLE `starme`.`album` (`album_id` INT(30) NULL AUTO_INCREMENT , `name` V
 CREATE TABLE `starme`.`photo` (`photo_id` INT(30) NULL AUTO_INCREMENT , `name` VARCHAR(256) NULL , `location` VARCHAR(256) NOT NULL , `date` DATE NULL , PRIMARY KEY (`name`), INDEX (`photo_id`)) ENGINE = InnoDB;
 CREATE TABLE `starme`.`male` (`maleid` INT(20) NULL AUTO_INCREMENT , `shoe` INT(3) NULL , `waist` FLOAT(4) NULL , `chest` FLOAT(4) NULL , `hair` VARCHAR(10) NULL , `eyes` VARCHAR(10) NULL , INDEX (`maleid`)) ENGINE = InnoDB;
 CREATE TABLE `starme`.`female` (`female_id` INT(20) NULL AUTO_INCREMENT , `bust` FLOAT(4) NULL , `waist` FLOAT(4) NULL , `eyes` FLOAT(4) NULL , `hair` VARCHAR(10) NULL , `shoe` FLOAT(4) NULL , `hips` FLOAT(4) NULL , `dress` FLOAT(4) NULL , INDEX (`female_id`)) ENGINE = InnoDB;
+
+CREATE TABLE `starme`.`subscription_service` (`subsription_name` VARCHAR(100) NULL , `service_name` VARCHAR(150) NULL , PRIMARY KEY (`subsription_name`)) ENGINE = InnoDB;
+CREATE TABLE `starme`.`subscribed_user_subscription` (`username` VARCHAR(256) NULL , `name` VARCHAR(100) NULL , PRIMARY KEY (`username`, `name`)) ENGINE = InnoDB;
+ALTER TABLE `model` ADD `username` VARCHAR(256) NOT NULL AFTER `latest_show_or_performance`;
+ALTER TABLE `model` ADD UNIQUE(`nicname`, `username`)
+CREATE TABLE `starme`.`model_album` (`nicname` VARCHAR(200) NULL , `name` VARCHAR(512) NULL , PRIMARY KEY (`nicname`, `name`)) ENGINE = InnoDB;
+CREATE TABLE `starme`.`album_photo` (`album_name` VARCHAR(512) NULL , `photo_name` VARCHAR(256) NULL , PRIMARY KEY (`album_name`, `photo_name`)) ENGINE = InnoDB;
+ALTER TABLE `male` ADD `nicname` VARCHAR(200) NULL AFTER `eyes`, ADD PRIMARY KEY (`nicname`);
+ALTER TABLE `female` ADD `nicname` VARCHAR(200) NULL AFTER `dress`, ADD PRIMARY KEY (`nicname`);
+CREATE TABLE `starme`.`liked_photo` (`username` VARCHAR(256) NULL , `name` VARCHAR(256) NULL , `liked` VARCHAR(1) NULL , PRIMARY KEY (`username`, `name`)) ENGINE = InnoDB;
+CREATE TABLE `starme`.`liked_model` (`username` VARCHAR(256) NULL , `nicname` VARCHAR(200) NULL , `liked` VARCHAR(1) NULL , PRIMARY KEY (`nicname`, `username`)) ENGINE = InnoDB;
+CREATE TABLE `starme`.`liked_album` (`username` VARCHAR(256) NULL , `name` VARCHAR(512) NULL , `liked` VARCHAR(1) NULL , PRIMARY KEY (`username`, `name`)) ENGINE = InnoDB;
