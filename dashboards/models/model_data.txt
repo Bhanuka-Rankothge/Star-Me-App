@@ -1,0 +1,26 @@
+ age
+recent photo
+latest show/performance
+prior previews
+height
+weight
+    
+for men
+    height 180cm/ 5' 11" 
+    chest 96cm / 38"
+    waist 79cm / 31"
+    shoe 43 EU / 9 US / 8.5 UK
+    Hair brown
+    eyes blue/green
+
+for women
+    height 171cm/ 5' 7.5"
+    bust 90cm/ 35' 0.5"
+    waist 65cm/ 25.5"
+    dress 40EU/ 10US/ 12UK
+    hips 103cm/ 40.5"
+    shoe 40 EU/9 US/7 UK
+    hair blond
+    eyes blue
+
+
